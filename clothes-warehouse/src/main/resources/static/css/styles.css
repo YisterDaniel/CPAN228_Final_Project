@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.text-danger {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.alert-success {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 6px;
+    font-weight: 500;
+    border: 1px solid #c3e6cb;
+}
+
+.table {
+    margin-bottom: 30px;
+}
+
+.mb-3 {
+    margin-bottom: 25px;
+}
+
+.mb-4 {
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 8px 16px;  /* Adjusted padding to make buttons look more consistent */
+    font-size: 12px;     /* Set consistent font size for buttons */
+    border-radius: 6px;  /* Rounded corners for a cleaner look */
+    text-transform: uppercase;  /* Capitalize button text for a uniform style */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 6px 12px;  /* Smaller padding for small buttons */
+    font-size: 14px;     /* Slightly smaller font for small buttons */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.btn-outline-info {
+    background-color: transparent;
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: white;
+    border-color: #17a2b8;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+
+.d-inline {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.mt-4 {
+    margin-top: 30px;
+}
+
+th {
+    text-align: left;
+    padding-right: 15px;
+}
+
+td {
+    text-align: left;
+}
+
+li {
+    list-style: none;
+}

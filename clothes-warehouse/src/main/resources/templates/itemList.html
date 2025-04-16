@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Items</title>
+    <link href="/webjars/bootstrap/5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- <p>Logged in as: <span th:text="${#authentication.name}"></span></p> -->
+    
+<div class="container">
+    <h2>Manage Items</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.brand}"></td>
+                <td th:text="${item.yearOfCreation}"></td>
+                <td th:text="${item.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <a th:href="@{/addItem}" sec:authorize="hasRole('ROLE_EMPLOYEE')" style="margin-top: 20px; display: block;">
+        Add New Item
+    </a> -->
+
+    <form th:action="@{/addItem}" method="post" sec:authorize="hasRole('ROLE_EMPLOYEE')">
+        <button type="submit">Add New Item</button>
+    </form>
+
+    <br>
+    <!-- Example Thymeleaf template (e.g., itemList.html or adminItems.html) -->
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+</div>
+
+<script src="/webjars/bootstrap/5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

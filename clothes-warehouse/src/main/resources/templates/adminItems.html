@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Admin Item List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Manage Items (Admin)</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${items}">
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.brand}"></td>
+                    <td th:text="${item.yearOfCreation}"></td>
+                    <td th:text="${item.price}"></td>
+                    <td>
+                        <form th:action="@{/admin/delete/{id}(id=${item.id})}" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/addItem}" style="margin-top: 20px; display: block;">Add New Item</a>
+
+        <h2>Distribution Centres</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="centre : ${distributionCentres}">
+                    <td th:text="${centre.name}">Name</td>
+                    <td th:text="${centre.latitude}">Latitude</td>
+                    <td th:text="${centre.longitude}">Longitude</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="/admin/request-item" method="post" style="margin-top: 20px;">
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" name="brand" required>
+        
+            <label for="name">Item Name:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <button type="submit">Request Item</button>
+        </form>
+        
+        <!-- <a th:href="@{/}">Back to List</a> -->
+    </div>
+</body>
+
+</html>

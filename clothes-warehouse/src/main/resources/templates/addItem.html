@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link href="/webjars/bootstrap/5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">Clothes Warehouse</a>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <form th:action="@{/logout}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-outline-danger">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <h2 class="mb-4 text-center">Add Item to Stock</h2>
+
+    <div class="card shadow p-4 mb-5">
+        <h4 class="mb-3">New Inventory Item</h4>
+
+        <form th:action="@{/addItem}" th:object="${item}" method="post">
+            <div class="form-group mb-3">
+                <label for="name">Name</label>
+                <input type="text" id="name" th:field="*{name}" class="form-control">
+                <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="brand">Brand</label>
+                <select id="brand" th:field="*{brand}" class="form-control">
+                    <option value="BALENCIAGA">Balenciaga</option>
+                    <option value="STONE_ISLAND">Stone Island</option>
+                    <option value="DIOR">Dior</option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="yearOfCreation">Year of Creation</label>
+                <input type="number" id="yearOfCreation" th:field="*{yearOfCreation}" class="form-control">
+                <div class="text-danger" th:if="${#fields.hasErrors('yearOfCreation')}" th:errors="*{yearOfCreation}"></div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="price">Price</label>
+                <input type="number" id="price" th:field="*{price}" class="form-control">
+                <div class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+
+        <div th:if="${message}" class="alert alert-success mt-3" role="alert">
+            <p th:text="${message}"></p>
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/bootstrap/5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
